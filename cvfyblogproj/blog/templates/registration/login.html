@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Login</h1>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        {% if form.errors %}
+        <p>Username and Password did not match. Try again</p>
+        {% endif %}
+        <form method="POST" action="{% url 'login' %}" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="hidden" name="next" value="{{next}}">
+        </form>
+        <script>var editor = new MediumEditor('.editable');</script>
+    </div>
+</div>
+{% endblock %}

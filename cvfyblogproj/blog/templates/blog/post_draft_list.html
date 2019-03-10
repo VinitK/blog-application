@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Drafts</h1>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        {% if post_list %}
+        {% for post in post_list %}
+        <a style="text-decoration:none" href="{% url 'post_detail' pk=post.pk %}">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">{{post.title}}</h2>
+                    <div class="card-text text-muted">
+                        <p>{{post.text|striptags|truncatechars:200}}</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-muted d-flex justify-content-between w-100">
+                        <p>By {{post.author}}</p><p>{{post.create_date|date:"j M Y"}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        {% else %}
+        <p>0 Drafts</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
