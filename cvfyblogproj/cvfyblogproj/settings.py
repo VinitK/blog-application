@@ -26,7 +26,7 @@ SECRET_KEY = '4_%)toxr)s5oy@j2&g^uu-n^-hye3iq^z2qh=x7is(+tpo1m&*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vinitk.pythonanywhere.com',]
+ALLOWED_HOSTS = ['vinitk.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
